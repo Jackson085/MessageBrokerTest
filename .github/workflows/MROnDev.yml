@@ -1,0 +1,44 @@
+name: MR on dev
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Test
+        run: python -m Tests.StartAll
+
+  build_frontend:
+      runs-on: self-hosted
+      needs: test
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Check Node.js version
+        run: node --version
+
+      - name: Build Frontend
+        run: |
+            cd gui
+            npm install
+            ng build
+            cd ../
+            ls -al
