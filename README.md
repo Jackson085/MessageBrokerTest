@@ -145,4 +145,4 @@ Das PACELC-Theorem bietet eine umfassendere Sichtweise auf die Herausforderungen
 | **Modularität**           | Keine Modularität oder stark gekoppelt | Teilweise unabhängige Module            | Hohe Modularität, lose Kopplung       |
 | **Beispiel**              | Blog-Website                           | ERP-System                              | E-Commerce-Plattform                  |
 
-
+![img_1.png](img_1.png)
